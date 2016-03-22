@@ -1,0 +1,22 @@
+{
+  "name": "crawl-task",
+  "version": "0.0.1",
+  "description": "guidexx 项目的抓取任务",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "crawl",
+    "task"
+  ],
+  "author": "Hugo",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "eventproxy": "^0.3.4",
+    "mongoose": "^4.4.8",
+    "request": "^2.69.0"
+  }
+}
