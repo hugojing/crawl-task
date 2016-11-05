@@ -10,7 +10,8 @@ const Content = mongoose.model('Content', {
   title: String,
   company: String,
   homepage: String,
-  overview: String
+  overview: String,
+  image: String
 })
 
 request = request.defaults({
@@ -18,9 +19,6 @@ request = request.defaults({
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.65 Safari/537.36'
   }
 })
-
-
-
 
 // 请求列表页面，对返回的数据进行清洗，得到 postUris
 const fun1 = (pageUri) => {
@@ -41,7 +39,6 @@ const fun1 = (pageUri) => {
   })
 }
 
-
 // 请求每个 postUri 发起，对返回数据进行清洗，获得 items
 const fun2 = (postUris) => {
   return new Promise((resolve, reject) => {
@@ -57,6 +54,7 @@ const fun2 = (postUris) => {
             title: $('div.inner_service_de > div.service_de_section01 > div.service_de_section01_right > div.service_information > div.div01.clearfix > strong').text(),
             company: $('div.inner_service_de > div.service_de_section01 > div.service_de_section01_right > div.service_information > div.div02 > a').text(),
             homepage: $('div.inner_service_de > div.service_de_section01 > div.service_de_section01_right > div.service_information > div.div01.clearfix > a.enter_website').attr('href'),
+            image: $('div.inner_service_de > div.service_de_section01 > div.service_de_section01_left > div.div02 > img').attr('src'),
           }
           request('http://www.devstore.cn/service/servicePara/' + postUri.split('/')[5], (serr, sres, sbody) => {
             if (serr) return reject(serr)
@@ -71,7 +69,6 @@ const fun2 = (postUris) => {
     })
   })
 }
-
 
 // 对 items 数据进行保存处理
 const fun3 = (items) => {
@@ -97,11 +94,8 @@ const fun3 = (items) => {
   })
 }
 
-
-
-
 let pageUris = []
-for (let i = 1; i <= 2; i++) {
+for (let i = 1; i <= 94; i++) {
   pageUris.push('http://www.devstore.cn/service/newproductList/sta-cla0-cid-tag-ord-num' + i + '.html')
 }
 
