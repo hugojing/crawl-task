@@ -95,7 +95,7 @@ const fun3 = (items) => {
 }
 
 let pageUris = []
-for (let i = 1; i <= 94; i++) {
+for (let i = 1; i <= 6; i++) { // i <= 6 for test, max is 94
   pageUris.push('http://www.devstore.cn/service/newproductList/sta-cla0-cid-tag-ord-num' + i + '.html')
 }
 
