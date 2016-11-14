@@ -1,4 +1,6 @@
-#crawl-task
+# crawl-task [![Build Status](https://travis-ci.org/hugojing/crawl-task.svg?branch=master)](https://travis-ci.org/hugojing/crawl-task)
+
+A crawler using Promise & JacksonTian/eventproxy to handle asynchronous collaboration.
 
 ## library
 
